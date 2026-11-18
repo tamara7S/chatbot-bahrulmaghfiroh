@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot Layanan Informasi Resmi - Pondok Pesantren Bahrul Maghfiroh Malang</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #f0fdf4 0%, #e2e8f0 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+            color: #1e293b;
+        }
+
+        .showcase-card {
+            background: #ffffff;
+            max-width: 680px;
+            width: 100%;
+            border-radius: 24px;
+            padding: 36px 32px;
+            box-shadow: 0 20px 40px -15px rgba(22, 101, 52, 0.12), 0 0 0 1px rgba(22, 101, 52, 0.08);
+            text-align: center;
+        }
+
+        .badge-kkn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: #dcfce7;
+            color: #15803d;
+            font-size: 12px;
+            font-weight: 700;
+            padding: 6px 14px;
+            border-radius: 999px;
+            margin-bottom: 18px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .logo-icon {
+            font-size: 48px;
+            margin-bottom: 12px;
+            display: inline-block;
+        }
+
+        h1 {
+            font-size: 24px;
+            font-weight: 800;
+            color: #0f172a;
+            margin-bottom: 8px;
+            line-height: 1.3;
+        }
+
+        .subtitle {
+            font-size: 14px;
+            color: #64748b;
+            margin-bottom: 24px;
+            line-height: 1.6;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+            gap: 12px;
+            margin-bottom: 24px;
+            text-align: left;
+        }
+
+        .feature-item {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            padding: 12px 14px;
+            border-radius: 14px;
+        }
+
+        .feature-item .f-title {
+            font-size: 12px;
+            font-weight: 700;
+            color: #166534;
+            margin-bottom: 3px;
+        }
+
+        .feature-item .f-desc {
+            font-size: 11px;
+            color: #64748b;
+            line-height: 1.4;
+        }
+
+        .test-section {
+            background: #f0fdf4;
+            border: 1px dashed #86efac;
+            border-radius: 16px;
+            padding: 18px 16px;
+            margin-bottom: 26px;
+        }
+
+        .test-section h3 {
+            font-size: 13px;
+            font-weight: 700;
+            color: #166534;
+            margin-bottom: 12px;
+        }
+
+        .chip-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            justify-content: center;
+        }
+
+        .test-chip {
+            background: #ffffff;
+            border: 1px solid #bbf7d0;
+            color: #15803d;
+            font-size: 12px;
+            font-weight: 600;
+            padding: 8px 14px;
+            border-radius: 999px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.03);
+        }
+
+        .test-chip:hover {
+            background: #15803d;
+            color: #ffffff;
+            border-color: #15803d;
+            transform: translateY(-1px);
+        }
+
+        .test-chip.guardrail {
+            border-color: #fecaca;
+            color: #b91c1c;
+            background: #fff;
+        }
+
+        .test-chip.guardrail:hover {
+            background: #dc2626;
+            color: #ffffff;
+            border-color: #dc2626;
+        }
+
+        .action-row {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-main {
+            background: linear-gradient(135deg, #15803d, #166534);
+            color: white;
+            border: none;
+            padding: 12px 28px;
+            border-radius: 999px;
+            font-size: 14px;
+            font-weight: 700;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 8px 20px rgba(21, 128, 61, 0.25);
+            transition: all 0.2s;
+            text-decoration: none;
+        }
+
+        .btn-main:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 24px rgba(21, 128, 61, 0.35);
+        }
+
+        .btn-secondary {
+            background: #ffffff;
+            color: #0f172a;
+            border: 1px solid #cbd5e1;
+            padding: 12px 24px;
+            border-radius: 999px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .btn-secondary:hover {
+            background: #f8fafc;
+            border-color: #94a3b8;
+        }
+
+        .footer-note {
+            margin-top: 24px;
+            font-size: 12px;
+            color: #94a3b8;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="showcase-card">
+        <div class="badge-kkn">
+            🎓 KKN Reguler Universitas Negeri Malang (UM) 2026
+        </div>
+        
+        <div class="logo-icon">🕌🌿</div>
+        
+        <h1>Chatbot Layanan Informasi & PSB</h1>
+        <p class="subtitle">
+            Pondok Pesantren Bahrul Maghfiroh Malang<br>
+            Asisten cerdas 24 jam dengan toleransi typo, dialek Jawa Timuran, dan terhubung WhatsApp Panitia.
+        </p>
+
+        <!-- KARTU FITUR UNGGULAN -->
+        <div class="features-grid">
+            <div class="feature-item">
+                <div class="f-title">⚡ Dual-Engine</div>
+                <div class="f-desc">Offline Smart Rule-Based & Gemini AI API.</div>
+            </div>
+            <div class="feature-item">
+                <div class="f-title">🔤 Toleransi Typo</div>
+                <div class="f-desc">Levenshtein Distance untuk koreksi salah ketik.</div>
+            </div>
+            <div class="feature-item">
+                <div class="f-title">🗣️ Slang Jatim</div>
+                <div class="f-desc">Mengenali bahasa santai: <em>byaya, nyambang, piro</em>.</div>
+            </div>
+            <div class="feature-item">
+                <div class="f-title">🛡️ Guardrail Domain</div>
+                <div class="f-desc">Menolak santun pertanyaan di luar pesantren.</div>
+            </div>
+        </div>
+
+        <!-- UJI INTERAKTIF SEKALI KLIK -->
+        <div class="test-section">
+            <h3>⚡ Klik Pertanyaan Sampel untuk Mencoba:</h3>
+            <div class="chip-container">
+                <button class="test-chip" onclick="window.openBMChat('apa itu pindok')">🔍 "apa itu pindok" (Uji Typo)</button>
+                <button class="test-chip" onclick="window.openBMChat('byaya smp piro')">💰 "byaya smp piro" (Uji Slang)</button>
+                <button class="test-chip" onclick="window.openBMChat('sopo pengasuh pondok')">👤 "sopo pengasuh pondok"</button>
+                <button class="test-chip" onclick="window.openBMChat('jadwal nyambang santri')">📅 "jadwal nyambang"</button>
+                <button class="test-chip" onclick="window.openBMChat('boleh bawa hape gak')">📱 "boleh bawa hape gak"</button>
+                <button class="test-chip guardrail" onclick="window.openBMChat('siapa presiden amerika')">🛡️ "siapa presiden amerika" (Uji Tolak OOT)</button>
+            </div>
+        </div>
+
+        <!-- TOMBOL AKSI UTAMA -->
+        <div class="action-row">
+            <button class="btn-main" onclick="window.openBMChat()">
+                💬 Buka Chatbot
+            </button>
+            <a href="admin-chatbot.html" class="btn-secondary" target="_blank">
+                ⚙️ Panel Admin FAQ
+            </a>
+        </div>
+
+        <div class="footer-note">
+            Dikembangkan oleh Tim KKN UM: Ahmad Farid (Ketua), Azarine, Bahar, Septa, & Tamara • DPL: Januar Kustiandi, Ph.D.
+        </div>
+    </div>
+
+    <!-- SCRIPT CHATBOT BAHRUL MAGHFIROH -->
+    <script src="chatbot-bahrulmaghfiroh.js"></script>
+    <script>
+        // Buka otomatis widget obrolan saat halaman dimuat
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                window.openBMChat();
+            }, 400);
+        });
+    </script>
+</body>
+</html>

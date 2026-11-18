@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preview Widget Chatbot - Pondok Pesantren Bahrul Maghfiroh</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: #f1f5f9;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: system-ui, -apple-system, sans-serif;
+            color: #475569;
+        }
+
+        .preview-box {
+            text-align: center;
+            padding: 30px;
+        }
+
+        .preview-box h2 {
+            font-size: 20px;
+            color: #0f172a;
+            margin-bottom: 8px;
+        }
+
+        .preview-box p {
+            font-size: 14px;
+            margin-bottom: 16px;
+        }
+
+        .btn-open {
+            background: #16a34a;
+            color: white;
+            border: none;
+            padding: 10px 22px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(22, 163, 74, 0.25);
+        }
+
+        .btn-open:hover {
+            background: #15803d;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HALAMAN MINIMALIS UNTUK TESTING WIDGET CHATBOT -->
+    <div class="preview-box">
+        <h2>Widget Chatbot Bahrul Maghfiroh</h2>
+        <p>Silakan klik tombol di bawah atau klik ikon chat hijau di pojok kanan bawah untuk mencoba bertanya bebas.</p>
+        <button class="btn-open" onclick="window.openBMChat()">Buka Obrolan Chatbot</button>
+    </div>
+
+    <!-- 1 BARIS SCRIPT INI YANG NANTINYA DITEMPEL DI WEBSITE ASLI MEREKA -->
+    <script src="chatbot-bahrulmaghfiroh.js"></script>
+    <script>
+        // Otomatis buka jendela obrolan saat halaman dimuat biar langsung bisa dicoba
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                window.openBMChat();
+            }, 300);
+        });
+    </script>
+</body>
+</html>

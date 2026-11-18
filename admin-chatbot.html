@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel Pengelola Chatbot - Pondok Pesantren Bahrul Maghfiroh</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        body {
+            background-color: #f8fafc;
+            color: #1e293b;
+            padding: 40px 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .admin-card {
+            background: #ffffff;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+            border: 1px solid #e2e8f0;
+            width: 100%;
+            max-width: 780px;
+            padding: 36px;
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid #f1f5f9;
+            padding-bottom: 20px;
+            margin-bottom: 24px;
+        }
+
+        .header-title {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .logo-box {
+            width: 48px;
+            height: 48px;
+            border-radius: 14px;
+            background: #dcfce7;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+        }
+
+        .header-title h2 {
+            font-size: 20px;
+            color: #14532d;
+            font-weight: 800;
+        }
+
+        .header-title p {
+            font-size: 13px;
+            color: #64748b;
+        }
+
+        .badge-admin {
+            background: #fef3c7;
+            color: #92400e;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+        .section-box {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 14px;
+            padding: 22px;
+            margin-bottom: 24px;
+        }
+
+        .section-box.ai-box {
+            background: linear-gradient(180deg, #f0fdf4 0%, #f8fafc 100%);
+            border: 1.5px solid #86efac;
+        }
+
+        .section-box h3 {
+            font-size: 15.5px;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .form-group {
+            margin-bottom: 16px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 13px;
+            font-weight: 600;
+            color: #334155;
+            margin-bottom: 6px;
+        }
+
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 10px 14px;
+            border: 1px solid #cbd5e1;
+            border-radius: 10px;
+            font-size: 13.5px;
+            outline: none;
+            background: #ffffff;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+            border-color: #16a34a;
+            box-shadow: 0 0 0 2px rgba(22, 163, 74, 0.15);
+        }
+
+        .input-row {
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn-test-ai {
+            background: #15803d;
+            color: white;
+            border: none;
+            padding: 10px 18px;
+            border-radius: 10px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: background 0.2s;
+        }
+
+        .btn-test-ai:hover {
+            background: #166534;
+        }
+
+        .ai-guide-box {
+            background: #ffffff;
+            border: 1px solid #bbf7d0;
+            border-radius: 10px;
+            padding: 12px 16px;
+            font-size: 12.5px;
+            line-height: 1.5;
+            color: #166534;
+            margin-top: 10px;
+        }
+
+        .ai-guide-box ol {
+            margin-left: 18px;
+            margin-top: 6px;
+        }
+
+        .btn-save {
+            background: #16a34a;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 10px;
+            font-size: 14px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background 0.2s, transform 0.15s;
+        }
+
+        .btn-save:hover {
+            background: #15803d;
+            transform: translateY(-1px);
+        }
+
+        .btn-reset {
+            background: #ffffff;
+            color: #dc2626;
+            border: 1px solid #fca5a5;
+            padding: 12px 20px;
+            border-radius: 10px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .btn-reset:hover {
+            background: #fef2f2;
+        }
+
+        .actions-row {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            margin-top: 10px;
+        }
+
+        .status-pill {
+            font-size: 11.5px;
+            font-weight: 700;
+            padding: 4px 10px;
+            border-radius: 14px;
+        }
+
+        .status-pill.active {
+            background: #dcfce7;
+            color: #15803d;
+            border: 1px solid #86efac;
+        }
+
+        .status-pill.offline {
+            background: #fef3c7;
+            color: #92400e;
+            border: 1px solid #fcd34d;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="admin-card">
+        <div class="header">
+            <div class="header-title">
+                <div class="logo-box">🕌</div>
+                <div>
+                    <h2>Panel Pengelola Chatbot Pesantren</h2>
+                    <p>Khusus Pengurus & Administrator Pondok Pesantren Bahrul Maghfiroh</p>
+                </div>
+            </div>
+            <span class="badge-admin">🔒 Area Terbatas Admin</span>
+        </div>
+
+        <!-- 1. PENGATURAN KECERDASAN BUATAN GOOGLE GEMINI AI -->
+        <div class="section-box ai-box">
+            <h3>
+                <span>⚡ Integrasi Google Gemini AI (Generative NLP)</span>
+                <span class="status-pill offline" id="aiStatusPill">🟡 Mode Bawaan Pesantren</span>
+            </h3>
+            <p style="font-size:13px; color:#475569; margin-bottom:12px;">
+                Aktifkan Gemini API agar chatbot memiliki kemampuan penalaran kecerdasan buatan (AI) yang super luwes, ramah orang tua santri, dan mampu memahami ragam gaya bahasa penanya.
+            </p>
+            <div class="form-group">
+                <label>Google Gemini API Key:</label>
+                <div class="input-row">
+                    <input type="password" id="admGeminiKey" placeholder="Tempel Gemini API Key di sini (misal: AIzaSy...)" autocomplete="off">
+                    <button class="btn-test-ai" type="button" onclick="testGeminiConnection()">🧪 Uji Koneksi AI</button>
+                </div>
+            </div>
+
+            <div class="ai-guide-box">
+                <strong>Cara Mudah Mendapatkan Gemini API Key Gratis (1 Menit):</strong>
+                <ol>
+                    <li>Buka portal resmi Google AI Studio: <a href="https://aistudio.google.com/app/apikey" target="_blank" style="color:#15803d; font-weight:700;">aistudio.google.com/app/apikey</a></li>
+                    <li>Login dengan akun Google/Gmail apa saja.</li>
+                    <li>Klik tombol biru <strong>"Create API key"</strong>, lalu salin kuncinya dan tempel ke kolom di atas. Selesai! (100% Gratis).</li>
+                </ol>
+            </div>
+        </div>
+
+        <!-- 2. PENGATURAN STATUS PENDAFTARAN (PSB) -->
+        <div class="section-box">
+            <h3>📅 Pengaturan Status Pendaftaran (PSB)</h3>
+            <div class="form-group">
+                <label>Status Penerimaan Santri Baru Saat Ini:</label>
+                <select id="admStatus">
+                    <option value="BUKA">Buka (Pendaftaran Sedang Dibuka)</option>
+                    <option value="TUTUP">Tutup (Pendaftaran Sedang Ditutup / Kuota Penuh)</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Rincian Tanggal & Gelombang (Yang Muncul Saat User Tanya):</label>
+                <textarea id="admJadwal" rows="2" placeholder="Contoh: Gelombang 1 dibuka 1 Oktober s/d 31 Desember..."></textarea>
+            </div>
+            <div class="form-group">
+                <label>Nomor WhatsApp Narahubung Panitia PSB:</label>
+                <input type="text" id="admWa" placeholder="Contoh: 08113648800">
+            </div>
+        </div>
+
+        <!-- 3. TAMBAH PERTANYAAN & JAWABAN BARU -->
+        <div class="section-box">
+            <h3>➕ Tambah Topik Tanya-Jawab Baru ke Database</h3>
+            <div class="form-group">
+                <label>Kata Kunci Pertanyaan (Pisahkan dengan koma):</label>
+                <input type="text" id="admNewKeywords" placeholder="Contoh: beasiswa tahfidz, seragam, jadwal ujian">
+            </div>
+            <div class="form-group">
+                <label>Teks Jawaban Bot:</label>
+                <textarea id="admNewAnswer" rows="3" placeholder="Tuliskan jawaban yang akan disampaikan bot ke pengunjung..."></textarea>
+            </div>
+            <button class="btn-save" style="background:#0284c7;" type="button" onclick="addNewFaq()">+ Tambahkan ke Database</button>
+        </div>
+
+        <!-- TOMBOL SIMPAN KESELURUHAN -->
+        <div class="actions-row">
+            <button class="btn-save" type="button" onclick="saveAllSettings()">Simpan Seluruh Pengaturan</button>
+            <button class="btn-reset" type="button" onclick="resetDatabase()">Reset Database Default</button>
+            <span id="saveAlert" style="font-size:13.5px; color:#16a34a; font-weight:700; display:none;">✅ Berhasil Disimpan!</span>
+        </div>
+    </div>
+
+    <script>
+        window.addEventListener('load', () => {
+            const cfg = JSON.parse(localStorage.getItem('bm_chatbot_config') || '{}');
+            document.getElementById('admStatus').value = cfg.psb_status || 'BUKA';
+            document.getElementById('admJadwal').value = cfg.psb_jadwal || 'Gelombang 1 dibuka mulai 1 Oktober s/d 31 Desember 2026. Gelombang 2 dibuka mulai 1 Januari s/d 31 Maret 2027.';
+            document.getElementById('admWa').value = cfg.psb_kontak_wa || '0811-3648-800';
+
+            const apiKey = localStorage.getItem('bm_gemini_api_key') || '';
+            document.getElementById('admGeminiKey').value = apiKey;
+            updateAiPill(apiKey);
+        });
+
+        function updateAiPill(apiKey) {
+            const pill = document.getElementById('aiStatusPill');
+            if (apiKey && apiKey.trim().length > 15) {
+                pill.className = 'status-pill active';
+                pill.innerHTML = '🟢 Gemini AI Aktif';
+            } else {
+                pill.className = 'status-pill offline';
+                pill.innerHTML = '🟡 Mode Bawaan Pesantren';
+            }
+        }
+
+        async function testGeminiConnection() {
+            const key = document.getElementById('admGeminiKey').value.trim();
+            if (!key) {
+                alert("Masukkan API Key terlebih dahulu untuk diuji!");
+                return;
+            }
+            const btn = document.querySelector('.btn-test-ai');
+            btn.innerHTML = '⏳ Menghubungkan...';
+            btn.disabled = true;
+
+            try {
+                const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${key}`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        contents: [{ role: 'user', parts: [{ text: 'Halo Bahrul Maghfiroh' }] }]
+                    })
+                });
+
+                if (res.ok) {
+                    alert("✅ SUKSES! Google Gemini API terhubung dengan baik dan siap digunakan di chatbot.");
+                    localStorage.setItem('bm_gemini_api_key', key);
+                    updateAiPill(key);
+                } else {
+                    const err = await res.json();
+                    alert("❌ Gagal terhubung: " + (err.error?.message || "Kunci API tidak valid"));
+                }
+            } catch (e) {
+                alert("❌ Terjadi kendala jaringan saat menghubungi Google API: " + e.message);
+            } finally {
+                btn.innerHTML = '🧪 Uji Koneksi AI';
+                btn.disabled = false;
+            }
+        }
+
+        function saveAllSettings() {
+            const apiKey = document.getElementById('admGeminiKey').value.trim();
+            localStorage.setItem('bm_gemini_api_key', apiKey);
+            updateAiPill(apiKey);
+
+            const cfg = {
+                psb_status: document.getElementById('admStatus').value,
+                psb_jadwal: document.getElementById('admJadwal').value,
+                psb_kontak_wa: document.getElementById('admWa').value.replace(/[^0-9]/g, ''),
+                psb_pesan_tutup: "Pendaftaran santri baru saat ini sedang DITUTUP karena kuota asrama telah terpenuhi."
+            };
+            localStorage.setItem('bm_chatbot_config', JSON.stringify(cfg));
+            
+            const alertBox = document.getElementById('saveAlert');
+            alertBox.style.display = 'inline';
+            setTimeout(() => { alertBox.style.display = 'none'; }, 3000);
+            alert("✅ Seluruh konfigurasi berhasil disimpan! Chatbot otomatis mengikuti data terbaru.");
+        }
+
+        function addNewFaq() {
+            const kw = document.getElementById('admNewKeywords').value.trim();
+            const ans = document.getElementById('admNewAnswer').value.trim();
+            if (!kw || !ans) {
+                alert("Harap isi kata kunci dan jawabannya!");
+                return;
+            }
+            const kwList = kw.split(',').map(s => s.trim().toLowerCase()).filter(Boolean);
+            const db = JSON.parse(localStorage.getItem('bm_custom_database') || '[]');
+            db.unshift({
+                keywords: kwList,
+                answer: ans.replace(/\n/g, '<br>')
+            });
+            localStorage.setItem('bm_custom_database', JSON.stringify(db));
+            alert("✅ Topik tanya-jawab baru berhasil ditambahkan!");
+            document.getElementById('admNewKeywords').value = '';
+            document.getElementById('admNewAnswer').value = '';
+        }
+
+        function resetDatabase() {
+            if (confirm("Yakin ingin mereset seluruh database ke pengaturan awal resmi Bahrul Maghfiroh?")) {
+                localStorage.removeItem('bm_custom_database');
+                alert("Database berhasil direset ke standar resmi Bahrul Maghfiroh.");
+            }
+        }
+    </script>
+</body>
+</html>

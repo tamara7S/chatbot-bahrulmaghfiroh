@@ -1,0 +1,43 @@
+=====================================================================================
+PANDUAN PEMASANGAN WIDGET CHATBOT LAYANAN INFORMASI & PSB
+PONDOK PESANTREN BAHRUL MAGHFIROH MALANG
+Karya Tim KKN Reguler Universitas Negeri Malang (UM) 2026
+=====================================================================================
+
+A. CARA PEMASANGAN DI WEBSITE RESMI PONDOK (HANYA 1 BARIS):
+-------------------------------------------------------------------------------------
+1. Unggah berkas "chatbot-bahrulmaghfiroh.js" ke folder hosting / public website pondok.
+2. Buka berkas template utama website (misal: index.html, footer.php, atau layout.blade.php).
+3. Letakkan baris script berikut tepat SEBELUM tag penutup </body>:
+
+   <script src="chatbot-bahrulmaghfiroh.js"></script>
+
+4. Selesai! Ikon chat bulat hijau islami akan otomatis muncul di pojok kanan bawah
+   di seluruh halaman website.
+
+
+B. FITUR DUAL-ENGINE (GEMINI AI + KNOWLEDGE BASE RESMI):
+-------------------------------------------------------------------------------------
+Chatbot ini didesain sangat cerdas dan ramah orang tua / wali santri:
+1. Mode Google Gemini AI:
+   - Jika admin memasukkan Gemini API Key, chatbot akan berpikir layaknya "Ustadz/Ustadzah
+     Customer Service Virtual" yang ramah, santun, dan mampu menjawab pertanyaan santai.
+   - Jawaban langsung menyarikan informasi resmi dari website Bahrul Maghfiroh.
+2. Mode Cerdas Bawaan (Offline Fallback):
+   - Jika TANPA API Key atau internet terputus, chatbot tetap 100% aktif menjawab
+     menggunakan basis data resmi pesantren (profil, Gus Luqman, Prof. Bisri, syarat PSB,
+     biaya, jadwal sambangan, tata tertib HP, fasilitas, dan kontak).
+3. Tombol Cepat WhatsApp Panitia:
+   - Di setiap jawaban dan pembuka chat, terdapat tombol langsung menuju WhatsApp resmi
+     Panitia PSB Bahrul Maghfiroh (0811-3648-800). Sangat membantu orang tua yang ingin
+     berbicara langsung dengan manusia.
+
+
+C. AKSES DASBOR PENGELOLA (ADMIN CHATBOT):
+-------------------------------------------------------------------------------------
+Untuk mengubah status pendaftaran (Buka/Tutup), tanggal gelombang, nomor WhatsApp,
+atau memasukkan Google Gemini API Key:
+1. Buka berkas "admin-chatbot.html" di peramban web (browser).
+2. Atau dari jendela obrolan, ketik "/admin" lalu masukkan PIN: 1234.
+3. Seluruh tombol admin dan konfigurasi ini 100% TERSEMBUNYI dari pengunjung umum.
+=====================================================================================
